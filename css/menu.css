@@ -1,0 +1,57 @@
+#menu-bar{
+	display: none;
+}
+
+header label{
+	float: right;
+	font-size: 28px;
+	margin: 6px 0;
+	cursor: pointer; /* aparezca la mano*/
+}
+
+.menu{
+	position: absolute;
+	top: 50px; /* comience desde la esquina izquierda*/
+	left: 0; /* comience desde la esquina izquierda*/
+	width: 100%;
+	height: 100vh; /* ocupe el 100% del ancho de la ventana*/
+	background: rgba(255,89,0,0.9);
+	transition: all 0.5s; /* ver movimiento del menu*/
+	transform: translateX(-100%); /* movimiento hacia la izquierda*/
+}
+
+.menu a{
+	display: block; /* alinea hacia abajo*/
+	color: #fff;
+	height: 50px;
+	text-decoration: none; /* quita las rayas y demas */
+	padding: 15px;
+	border-bottom: 1px solid rgba(255,255,255,0.5); /* lineas intermedias*/
+}
+
+.menu a:hover { 
+	background: rgba(242,184,13,0.3); /* pasar el mouse toma acolor*/
+}
+
+#menu-bar:checked ~ .menu{
+	transform: translateX(0%);/* funcione al dar click al tener la subdo clase checked input */
+} 
+
+@media (min-width: 1024px){
+	.menu{
+		position: static; /* reposicionamos el menu*/
+		width: auto;
+		height: auto;
+		transform: translateX(0%);
+		float: right;
+		display: flex;
+	}
+
+	.menu a{
+		border:none;
+	}
+
+	header label{
+		display: none;
+	}
+}
